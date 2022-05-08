@@ -1,4 +1,4 @@
-# [Original Project in JavaScript](https://github.com/ssynowiec/ToDoList)
+# [⚠ Original Project in JavaScript ⚠](https://github.com/ssynowiec/ToDoList)
 
 # Getting Started with Create React App
 
