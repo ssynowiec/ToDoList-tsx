@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import { Header } from './components/Header/Header';
+import { TaskInput } from './components/TaskInput/TaskInput';
+import { TasksList } from './components/TasksList/TasksList';
+import { Footer } from './components/Footer/Footer';
+import { Button } from './components/Button/Button';
+import { TaskContextProvider } from './context/task-context';
+import { Task } from './types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+	const userTasksList: Task[] = [{ id: 0, name: 'gym', completed: false }];
 
-export default App;
+	return (
+		<TaskContextProvider>
+			<Header />
+			<main className={styles.content}>
+				<TaskInput />
+				{userTasksList.length === 0 && (
+					<h2 className={styles.noTasks}>
+						No tasks 🤷‍♂️, add here anything
+					</h2>
+				)}
+				{userTasksList.length > 0 && (
+					<>
+						<TasksList />
+						<Button>Clear All</Button>
+					</>
+				)}
+			</main>
+			<p>Test</p>
+			<Footer />
+		</TaskContextProvider>
+	);
+};

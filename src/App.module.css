@@ -1,0 +1,24 @@
+.content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.noTasks {
+	padding: 15px 30px;
+	text-align: center;
+	color: rgb(165, 165, 165);
+}
+
+@media (min-width: 992px) {
+	.content {
+		width: 60%;
+		margin: 0 auto;
+	}
+}
+
+@media (min-width: 1400px) {
+	.content {
+		width: 40%;
+		margin: 0 auto;
+	}
+}
