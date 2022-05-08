@@ -4,7 +4,7 @@ import styles from "./TasksList.module.css";
 
 export const TasksList = () => {
   const ctx = useTaskContext();
-  const tasks = ctx.getAllTasks;
+  const tasks = ctx.getAllTasks();
 
   return (
     <section className={styles.tasksList}>

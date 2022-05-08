@@ -9,7 +9,7 @@ type ButtonProps = {
 export const Button = ({ children }: ButtonProps) => {
   const ctx = useTaskContext();
   const deleteAllTasks = () => {
-    ctx.deleteAll();
+    ctx.deleteAll([]);
   };
 
   return (

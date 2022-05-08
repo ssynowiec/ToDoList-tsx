@@ -1,3 +1,4 @@
+import { Dispatch, ReactElement, SetStateAction } from "react";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Task } from "../types";
 
@@ -8,15 +9,15 @@ const tasksList: Task[] = [
 ];
 
 type TaskProviderProps = {
-  children: ReactNode;
+  children: ReactNode | ReactElement;
 };
 
 type TaskOptions = {
   change: (taskId: number) => void;
   delete: (taskId: number) => void;
   add: (newTask: Task) => void;
-  deleteAll: any;
-  getAllTasks: Task[];
+  deleteAll: Dispatch<SetStateAction<Task[]>>;
+  getAllTasks: () => Task[];
 };
 
 const TasksContext = createContext<TaskOptions | undefined>(undefined);
@@ -50,7 +51,7 @@ export const TaskContextProvider = ({ children }: TaskProviderProps) => {
         delete: deleteTask,
         add: addNewTask,
         deleteAll: setuserTasksList,
-        getAllTasks: userTasksList,
+        getAllTasks: () => userTasksList,
       }}
     >
       {children}
